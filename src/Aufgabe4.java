@@ -36,7 +36,15 @@ public class Aufgabe4 {
 
 	private static String removeCharsInString(String text, char start, char end) {
 		// TODO: Implementieren Sie hier Ihre Lösung für die Methode
-		return null; //Zeile kann geändert oder entfernt werden.
+		if (text.length() > 0) {
+			char ch = text.charAt(text.length() - 1);
+			if (ch > start && ch < end) {
+				return "" + removeCharsInString(text.substring(0, text.length() - 1), start, end);
+			} else {
+				return "" + ch + removeCharsInString(text.substring(0, text.length() - 1), start, end);
+			}
+		}
+		return "";
 	}
 
 	private static String shiftDigitRight(String text) {
@@ -50,11 +58,11 @@ public class Aufgabe4 {
 		System.out.println(countCharsSmaller("Ein Test", (char) 100));
 		System.out.println();
 
-//        System.out.println(removeCharsInString("testtrompete", 'd', 'n'));
-//        System.out.println(removeCharsInString("test", 's', 'u'));
-//        System.out.println(removeCharsInString("t", 't', 't'));
-//        System.out.println(removeCharsInString("angabe", 'a', 'z'));
-//        System.out.println();
+        System.out.println(removeCharsInString("testtrompete", 'd', 'n'));
+        System.out.println(removeCharsInString("test", 's', 'u'));
+        System.out.println(removeCharsInString("t", 't', 't'));
+        System.out.println(removeCharsInString("angabe", 'a', 'z'));
+        System.out.println();
 //
 //        System.out.println(shiftDigitRight("az3kj"));
 //        System.out.println(shiftDigitRight("kjdn{nd8xngs+d#k"));
